@@ -18,12 +18,6 @@
   "*Number of seconds after which the paste will be deleted from the server.
 Set this value to 0 to disable this feature. The default is set to 7 days.")
 
-(defun paste-kde-retrieve-json ()
-  (save-excursion
-    (goto-char (point-min))
-    (re-search-forward "{\\(.*\n?\\)*}")
-    (match-string 0)))
-
 (defun paste-kde-pick-lang ()
   (let ((lang (gethash major-mode *paste-kde-langs*)))
     (if (null lang) "text" lang)))
