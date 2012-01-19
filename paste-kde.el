@@ -58,3 +58,5 @@ Set this value to 0 to disable this feature. The default is set to 7 days.")
   (let ((lang (paste-kde-pick-lang))
         (data (buffer-substring-no-properties (point-min) (point-max))))
     (browse-url (paste-kde-post data lang))))
+
+(provide 'paste-kde)
