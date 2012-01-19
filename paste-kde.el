@@ -44,14 +44,9 @@ Set this value to 0 to disable this feature. The default is set to 7 days.")
    (cons 'paste_expire (int-to-string *paste-kde-expire*))))
 
 (defun paste-kde-post (data lang)
-  (let ((url-request-method "POST")
-        (url-request-data
-         (concat "paste_data=" data "&"
-                 "paste_lang=" lang "&"
-                 "api_submit=true&mode=json")))
-    (paste-kde-parse-post-url (http-post-simple
-                               *paste-kde-url*
-                               (paste-kde-make-post-alist data lang)))))
+  (paste-kde-parse-post-url (http-post-simple
+                             *paste-kde-url*
+                             (paste-kde-make-post-alist data lang))))
 
 (defun paste-kde-buffer ()
   (interactive)
