@@ -25,7 +25,7 @@
 ;;; Commentary:
 
 ;; To post the current buffer to KDE's pastebin service, use the
-;; procedure `paste-kde-buffer'.
+;; procedure `paste-kde-buffer'. To post a region, `paste-kde-region'.
 
 ;; paste-kde will try to figure out the language of the code using the
 ;; buffer's major mode and an internal hash table. If there isn't a
@@ -95,8 +95,12 @@ Set this value to 0 to disable this feature. The default is set to 7 days."
 
 (defun paste-kde-buffer ()
   (interactive)
+  (paste-kde-region (point-min) (point-max)))
+
+(defun paste-kde-region (start end)
+  (interactive "r")
   (let ((lang (paste-kde-pick-lang))
-        (data (buffer-substring-no-properties (point-min) (point-max))))
+        (data (buffer-substring-no-properties start end)))
     (browse-url (paste-kde-post data lang))))
 
 (provide 'paste-kde)
