@@ -1,4 +1,3 @@
-(load-file "http-post-simple.el")
 (require 'http-post-simple)
 
 (defvar *paste-kde-langs*
