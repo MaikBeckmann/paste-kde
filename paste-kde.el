@@ -105,14 +105,24 @@ Set this value to 0 to disable this feature. The default is set to 7 days."
                              *paste-kde-url*
                              (paste-kde-make-post-alist data lang))))
 
-(defun paste-kde-buffer ()
-  (interactive)
-  (paste-kde-region (point-min) (point-max)))
+(defun paste-kde-buffer (lang)
+  (interactive
+   (list (if current-prefix-arg
+             (completing-read "Choose the language: "
+                              (paste-kde-list-of-possible-langs)
+                              nil t)
+           (paste-kde-pick-lang))))
+  (paste-kde-region (point-min) (point-max) lang))
 
-(defun paste-kde-region (start end)
-  (interactive "r")
-  (let ((lang (paste-kde-pick-lang))
-        (data (buffer-substring-no-properties start end)))
+(defun paste-kde-region (start end lang)
+  (interactive
+   (let ((string (if current-prefix-arg
+                     (completing-read "Choose the language: "
+                                      (paste-kde-list-of-possible-langs)
+                                      nil t)
+                   (paste-kde-pick-lang))))
+     (list (region-beginning) (region-end) string)))
+  (let ((data (buffer-substring-no-properties start end)))
     (let ((url (paste-kde-post data lang)))
       (when paste-kde-open-browser (browse-url url))
       (message "%s" url))))
