@@ -58,7 +58,9 @@
                  c-mode
                  "c")))
 
-(defvar *paste-kde-url* "http://paste.kde.org/")
+(defconst *paste-kde-url* "http://paste.kde.org/"
+  "KDE's pastebin service url to post text")
+
 (defcustom paste-kde-user user-login-name
   "Defines the alias to be used in the post"
   :group 'paste-kde
