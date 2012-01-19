@@ -75,6 +75,12 @@ Set this value to 0 to disable this feature. The default is set to 7 days."
   :group 'paste-kde
   :type '(boolean))
 
+(defun paste-kde-list-of-possible-langs ()
+  (let (values)
+    (maphash #'(lambda (key value)
+                 (setq values (cons value values))) *paste-kde-langs*)
+    values))
+
 (defun paste-kde-pick-lang ()
   (let ((lang (gethash major-mode *paste-kde-langs*)))
     (if (null lang) "text" lang)))
