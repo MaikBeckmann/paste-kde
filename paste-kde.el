@@ -113,11 +113,17 @@ Set this value to 0 to disable this feature. The default is set to 7 days."
     (paste-kde-pick-lang)))
 
 (defun paste-kde-buffer (lang)
+  "Paste the current buffer
+
+If called with a prefix, LANG will be filled by you. Without a prefix, LANG will be choosen automatically."
   (interactive
    (list (paste-kde-user-pick-lang current-prefix-arg)))
   (paste-kde-region (point-min) (point-max) lang))
 
 (defun paste-kde-region (start end lang)
+  "Paste the current region
+
+If called with a prefix, LANG will be filled by you. Without a prefix, LANG will be choosen automatically."
   (interactive
    (let ((string (paste-kde-user-pick-lang current-prefix-arg)))
      (list (region-beginning) (region-end) string)))
