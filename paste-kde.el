@@ -1,4 +1,5 @@
 (require 'http-post-simple)
+(require 'json)
 
 (defvar *paste-kde-langs*
   #s(hash-table size 42 data
