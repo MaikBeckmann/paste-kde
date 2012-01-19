@@ -1,3 +1,43 @@
+;;; paste-kde.el --- paste text to KDE's pastebin service
+
+;; Copyright (C) 2012 Diogo F. S. Ramos
+
+;; Author: Diogo F. S. Ramos <diogofsr@gmail.com>
+;; Version: 0
+;; Keywords: comm, convenience, tools
+
+;; This file is NOT part of GNU Emacs.
+
+;; This program is free software: you can redistribute it and/or
+;; modify it under the terms of the GNU General Public License as
+;; published by the Free Software Foundation, either version 3 of the
+;; License, or (at your option) any later version.
+
+;; This program is distributed in the hope that it will be useful, but
+;; WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; General Public License for more details.
+
+;; You should have received a copy of the GNU General Public License
+;; along with this program.  If not, see
+;; <http://www.gnu.org/licenses/>.
+
+;;; Commentary:
+
+;; To post the current buffer to KDE's pastebin service, use the
+;; procedure `paste-kde-buffer'.
+
+;; paste-kde will try to figure out the language of the code using the
+;; buffer's major mode and an internal hash table. If there isn't a
+;; match, paste-kde will post the code as Text.
+
+;; After posting the code, the post's url will be open using
+;; `browser-url'.
+
+;; This library uses `http-simple-post.el' to post the text.
+
+;;; Code:
+
 (require 'http-post-simple)
 (require 'json)
 
@@ -60,3 +100,5 @@ Set this value to 0 to disable this feature. The default is set to 7 days."
     (browse-url (paste-kde-post data lang))))
 
 (provide 'paste-kde)
+
+;;; paste-kde.el ends here
