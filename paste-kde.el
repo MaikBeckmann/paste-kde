@@ -70,6 +70,10 @@
 Set this value to 0 to disable this feature. The default is set to 7 days."
   :group 'paste-kde
   :type '(integer))
+(defcustom paste-kde-open-browser t
+  "Whenever the posted text should be opened using a browser."
+  :group 'paste-kde
+  :type '(boolean))
 
 (defun paste-kde-pick-lang ()
   (let ((lang (gethash major-mode *paste-kde-langs*)))
@@ -103,7 +107,9 @@ Set this value to 0 to disable this feature. The default is set to 7 days."
   (interactive "r")
   (let ((lang (paste-kde-pick-lang))
         (data (buffer-substring-no-properties start end)))
-    (browse-url (paste-kde-post data lang))))
+    (let ((url (paste-kde-post data lang)))
+      (when paste-kde-open-browser (browse-url url))
+      (message "%s" url))))
 
 (provide 'paste-kde)
 
