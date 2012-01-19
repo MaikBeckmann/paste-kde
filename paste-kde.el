@@ -1,6 +1,12 @@
 (require 'http-post-simple)
 (require 'json)
 
+(defgroup paste-kde nil
+  "Paste text to paste.kde.org"
+  :tag "Paste KDE"
+  :group 'applications
+  :version "23.2.1")
+
 (defvar *paste-kde-langs*
   #s(hash-table size 42 data
                 (emacs-lisp-mode
@@ -13,11 +19,15 @@
                  "c")))
 
 (defvar *paste-kde-url* "http://paste.kde.org/")
-(defvar paste-kde-user user-login-name
-  "*Defines the alias to be used in the post")
-(defvar paste-kde-expire 604800
-  "*Number of seconds after which the paste will be deleted from the server.
-Set this value to 0 to disable this feature. The default is set to 7 days.")
+(defcustom paste-kde-user user-login-name
+  "Defines the alias to be used in the post"
+  :group 'paste-kde
+  :type '(string))
+(defcustom paste-kde-expire 604800
+  "Number of seconds after which the paste will be deleted from the server.
+Set this value to 0 to disable this feature. The default is set to 7 days."
+  :group 'paste-kde
+  :type '(integer))
 
 (defun paste-kde-pick-lang ()
   (let ((lang (gethash major-mode *paste-kde-langs*)))
