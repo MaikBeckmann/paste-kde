@@ -11,6 +11,6 @@ Just add the directory to your `load-path' and put inside your
 
   (require 'paste-kde)
 
-To post a buffer: M-x paste-kde-buffer
+To paste a buffer: M-x paste-kde-buffer
 
-To post a region: M-x paste-kde-region
+To paste a region: M-x paste-kde-region
