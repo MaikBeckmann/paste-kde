@@ -12,9 +12,9 @@
                  "c")))
 
 (defvar *paste-kde-url* "http://paste.kde.org/")
-(defvar *paste-kde-user* user-login-name
+(defvar paste-kde-user user-login-name
   "*Defines the alias to be used in the post")
-(defvar *paste-kde-expire* 604800
+(defvar paste-kde-expire 604800
   "*Number of seconds after which the paste will be deleted from the server.
 Set this value to 0 to disable this feature. The default is set to 7 days.")
 
@@ -34,8 +34,8 @@ Set this value to 0 to disable this feature. The default is set to 7 days.")
    (cons 'paste_lang lang)
    (cons 'api_submit "true")
    (cons 'mode "json")
-   (cons 'paste_user *paste-kde-user*)
-   (cons 'paste_expire (int-to-string *paste-kde-expire*))))
+   (cons 'paste_user paste-kde-user)
+   (cons 'paste_expire (int-to-string paste-kde-expire))))
 
 (defun paste-kde-post (data lang)
   (paste-kde-parse-post-url (http-post-simple
