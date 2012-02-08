@@ -133,6 +133,7 @@
    (list 'icon-mode 'icon "Icon")
    (list 'idl-mode 'idl "Uno Idl")
    (list 'ini-mode 'ini "INI")
+   (list 'conf-unix-mode 'ini "INI")
    (list 'inno-mode 'inno "Inno")
    (list 'intercal-mode 'intercal "INTERCAL")
    (list 'io-mode 'io "Io")
