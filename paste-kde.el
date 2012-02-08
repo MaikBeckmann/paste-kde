@@ -140,6 +140,7 @@
    (list 'java-mode 'java "Java")
    (list 'java5-mode 'java5 "J2SE")
    (list 'javascript-mode 'javascript "Javascript")
+   (list 'js-mode 'javascript "Javascript")
    (list 'jquery-mode 'jquery "jQuery")
    (list 'kixtart-mode 'kixtart "KiXtart")
    (list 'klonec-mode 'klonec "KLone C")
