@@ -91,6 +91,8 @@
    (list 'cobol-mode 'cobol "COBOL")
    (list 'cpp-mode 'cpp "C++")
    (list 'cpp-mode 'cpp "qt -   C++ (Qt)")
+   (list 'c++-mode 'cpp "C++")
+   (list 'c++-mode 'cpp "qt -   C++ (Qt)")
    (list 'csharp-mode 'csharp "C#")
    (list 'css-mode 'css "CSS")
    (list 'cuesheet-mode 'cuesheet "Cuesheet")
